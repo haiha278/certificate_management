@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Certification Page</title>
+</head>
+<body>
+<form th:action="@{/save_certificate}" method="post">
+    <table>
+        <tr>
+            <td>Cert Id:</td>
+            <td>Cost:</td>
+        </tr>
+        <tr>
+            <td><input type='text' name='id' placeholder="Id"></td>
+            <td><input type='text' name='cost' placeholder="Cost"></td>
+        </tr>
+        <tr>
+            <td>Certification Name:</td>
+            <td>Category:</td>
+        </tr>
+        <tr>
+            <td><input type='text' name='name' placeholder="Certification Name"></td>
+            <td>
+                <select name="category" id="category">
+                    <option th:each="category:${categories}" th:value="${category.id}" th:text="${category.name}"
+                            th:id="${category.id}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="submit" type="submit" value="Save"/>
+                <input name="reset" type="reset" value="Reset"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
